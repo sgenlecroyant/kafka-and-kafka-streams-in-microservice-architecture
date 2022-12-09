@@ -21,7 +21,7 @@ public class OrderProducer {
 	}
 
 	public void sendToKafka(OrderMessage orderMessage) {
-		this.kafkaTemplate.send("orders-topic", orderMessage.getId(), orderMessage)
+		this.kafkaTemplate.send("orders-topic", orderMessage.getOrderId(), orderMessage)
 				.whenCompleteAsync((sendResult, exception) -> {
 					if (exception != null) {
 						this.logger.error("Exception Occurred while sending Order => {} to kafka. Error: {}",
