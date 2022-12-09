@@ -14,7 +14,7 @@ import com.sgenlecroyant.kafka.microservice.entity.Order;
 import com.sgenlecroyant.kafka.microservice.service.OrderService;
 
 @RestController
-@RequestMapping(path = "/order-app/api/v1/orders")
+@RequestMapping(path = "/order-app/api/v1")
 public class OrderController {
 
 	private final OrderService orderService;
@@ -23,7 +23,7 @@ public class OrderController {
 		this.orderService = orderService;
 	}
 
-	@PostMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest orderRequest) {
 		
 		Order order = this.orderService.saveAndSend(orderRequest);
