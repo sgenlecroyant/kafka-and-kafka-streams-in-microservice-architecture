@@ -1,5 +1,7 @@
 package com.sgenlecroyant.kafka.microservice.api.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ import com.sgenlecroyant.kafka.microservice.entity.Order;
 import com.sgenlecroyant.kafka.microservice.service.OrderService;
 
 @RestController
-@RequestMapping(path = "/order-app/api/v1")
+@RequestMapping(value = "/order-app/api/v1")
 public class OrderController {
 
 	private final OrderService orderService;
@@ -23,9 +25,9 @@ public class OrderController {
 		this.orderService = orderService;
 	}
 
-	@PostMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest orderRequest) {
-		
+
 		Order order = this.orderService.saveAndSend(orderRequest);
 		OrderResponse orderResponse = OrderResponse.createOrderResponse(order);
 		return ResponseEntity.status(HttpStatus.OK).body(orderResponse);

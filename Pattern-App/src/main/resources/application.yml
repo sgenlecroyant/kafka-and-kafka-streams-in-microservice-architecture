@@ -1,8 +1,8 @@
 
 server:
-  port: 8080
+  port: 8081
   
-
+  
 spring:
   kafka:
     producer:
@@ -31,8 +31,6 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sgen
     password: 
-  jpa:
-    show-sql: true   
       
       
       

@@ -10,8 +10,8 @@ import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderMessage;
 import com.sgenlecroyant.kafka.microservice.broker.order.producer.OrderProducer;
 import com.sgenlecroyant.kafka.microservice.entity.Order;
 import com.sgenlecroyant.kafka.microservice.entity.OrderItem;
-import com.sgenlecroyant.kafka.microservice.service.repository.OrderItemRepository;
-import com.sgenlecroyant.kafka.microservice.service.repository.OrderRepository;
+import com.sgenlecroyant.kafka.microservice.repository.OrderItemRepository;
+import com.sgenlecroyant.kafka.microservice.repository.OrderRepository;
 
 @Component
 public class OrderAction {
@@ -42,6 +42,8 @@ public class OrderAction {
 			OrderMessage orderMessage = OrderMessage.newBuilder(constructedOrderItem, orderFromRequest).build();
 			this.orderProducer.sendToKafka(orderMessage);
 		});
+
+		this.logger.info("ORDER PLACED !!!");
 
 		return orderFromRequest;
 	}
