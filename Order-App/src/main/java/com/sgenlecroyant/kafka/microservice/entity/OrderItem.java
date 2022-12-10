@@ -8,8 +8,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity(name = "order-items")
-@Table(name = "order-items")
+@Entity(name = "orderItems")
+@Table(name = "orderItems")
 public class OrderItem {
 
 	@Id
