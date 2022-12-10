@@ -43,6 +43,8 @@ public class OrderAction {
 			this.orderProducer.sendToKafka(orderMessage);
 		});
 
+		this.logger.info("ORDER PLACED !!!");
+
 		return orderFromRequest;
 	}
 
