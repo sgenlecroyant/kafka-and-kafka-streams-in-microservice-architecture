@@ -2,13 +2,15 @@ package com.sgenlecroyant.kafka.microservice.broker.order.message;
 
 public class PromotionMessage {
 
+	private String id;
 	private String promotionCode;
 
 	public PromotionMessage() {
-		
+
 	}
 
-	public PromotionMessage(String promotionCode) {
+	public PromotionMessage(String id, String promotionCode) {
+		this.id = id;
 		this.promotionCode = promotionCode;
 	}
 
@@ -18,6 +20,14 @@ public class PromotionMessage {
 
 	public void setPromotionCode(String promotionCode) {
 		this.promotionCode = promotionCode;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }
