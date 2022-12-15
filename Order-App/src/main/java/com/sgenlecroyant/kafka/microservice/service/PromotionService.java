@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgenlecroyant.kafka.microservice.action.PromotionAction;
 import com.sgenlecroyant.kafka.microservice.api.server.request.PromotionRequest;
+import com.sgenlecroyant.kafka.microservice.broker.order.message.PromotionMessage;
 import com.sgenlecroyant.kafka.microservice.broker.order.producer.PromotionCodeProducer;
 import com.sgenlecroyant.kafka.microservice.entity.Promotion;
 
@@ -13,7 +14,7 @@ public class PromotionService {
 
 	private final PromotionAction promotionAction;
 	private final PromotionCodeProducer promotionCodeProducer;
-	
+
 	@Autowired
 	public PromotionService(PromotionAction promotionAction, PromotionCodeProducer promotionCodeProducer) {
 		this.promotionAction = promotionAction;
@@ -22,7 +23,8 @@ public class PromotionService {
 
 	public Promotion createPromotionCodeAndSendToKafka(PromotionRequest promotionRequest) {
 		Promotion promotion = this.promotionAction.createPromotionCode(promotionRequest);
-		this.promotionCodeProducer.sendToKafka(promotion);
+		PromotionMessage promotionMessage = new PromotionMessage(promotion.getId(), promotion.getPromoCode());
+		this.promotionCodeProducer.sendToKafka(promotionMessage);
 		return promotion;
 	}
 

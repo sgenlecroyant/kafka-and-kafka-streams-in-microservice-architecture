@@ -30,4 +30,9 @@ public class PromotionMessage {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "PromotionMessage [id=" + id + ", promotionCode=" + promotionCode + "]";
+	}
+
 }
