@@ -1,6 +1,5 @@
 package com.sgenlecroyant.kafka.microservice.api.server.response;
 
-import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderMessage;
 import com.sgenlecroyant.kafka.microservice.entity.Order;
 
 public class OrderResponse {

@@ -3,8 +3,6 @@ package com.sgenlecroyant.kafka.microservice.api.server.request;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
-
-import com.github.javafaker.Faker;
 import com.sgenlecroyant.kafka.microservice.entity.Order;
 import com.sgenlecroyant.kafka.microservice.entity.OrderItem;
 import com.sgenlecroyant.kafka.microservice.order.builder.OrderRequestBuilder;

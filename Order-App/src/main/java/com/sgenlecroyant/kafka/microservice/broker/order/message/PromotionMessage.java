@@ -5,7 +5,7 @@ public class PromotionMessage {
 	private String promotionCode;
 
 	public PromotionMessage() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public PromotionMessage(String promotionCode) {

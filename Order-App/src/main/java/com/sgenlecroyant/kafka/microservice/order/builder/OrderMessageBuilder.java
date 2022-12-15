@@ -1,16 +1,10 @@
 package com.sgenlecroyant.kafka.microservice.order.builder;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderMessage;
 import com.sgenlecroyant.kafka.microservice.entity.Order;
 import com.sgenlecroyant.kafka.microservice.entity.OrderItem;
 
 public class OrderMessageBuilder {
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private String orderId;
 	private String creditCardNumber;

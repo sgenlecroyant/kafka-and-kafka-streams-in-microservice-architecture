@@ -3,7 +3,6 @@ package com.sgenlecroyant.kafka.microservice.order.builder;
 import java.util.List;
 
 import com.sgenlecroyant.kafka.microservice.api.server.request.OrderRequest;
-import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderMessage;
 import com.sgenlecroyant.kafka.microservice.entity.OrderItem;
 
 public class OrderRequestBuilder {
@@ -34,6 +33,11 @@ public class OrderRequestBuilder {
 
 	public String getLocation() {
 		return location;
+	}
+
+
+	public List<OrderItem> getItems(){
+		return items;
 	}
 
 }
