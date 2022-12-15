@@ -1,11 +1,6 @@
 package com.sgenlecroyant.kafka.microservice.broker.order.message;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class OrderMessage {
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private String orderId;
 	private String name;
@@ -16,7 +11,7 @@ public class OrderMessage {
 	private String itemId;
 
 	public OrderMessage() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public String getName() {

@@ -18,7 +18,7 @@ public class Promotion {
 	private String promoCode;
 
 	public Promotion() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Promotion(PromotionBuilder builder) {
