@@ -1,11 +1,13 @@
 package com.sgenlecroyant.kafka.microservice.broker.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.common.header.Header;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 import com.sgenlecroyant.kafka.microservice.broker.order.message.DiscountMessage;
@@ -25,5 +27,6 @@ public class PromotionDiscountConsumer {
 	@KafkaHandler
 	public void streamDiscounts(DiscountMessage discountMessage) {
 		this.logger.info("discount message: {}", discountMessage);
+
 	}
 }
