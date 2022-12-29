@@ -3,6 +3,10 @@ package com.sgenlecroyant.kafka.microservice.broker.order.message;
 public class OrderReply {
 
 	private String message;
+	
+	public OrderReply() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public OrderReply(String message) {
 		this.message = message;
