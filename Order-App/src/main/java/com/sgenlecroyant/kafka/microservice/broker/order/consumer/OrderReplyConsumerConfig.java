@@ -17,22 +17,23 @@ import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderReply;
 @Component
 public class OrderReplyConsumerConfig {
 
-//	@Autowired
+	@Autowired
 	private KafkaProperties kafkaProperties;
 
-//	@Bean
+	@Bean
 	public ConsumerFactory<String, OrderReply> getConsumerFactory() {
 		Map<String, Object> consumerProperties = this.kafkaProperties.buildConsumerProperties();
 		return new DefaultKafkaConsumerFactory<>(consumerProperties);
 	}
 
-//	@Bean
+	@Bean
 	public ContainerProperties getContainerProperties() {
 		ContainerProperties containerProperties = new ContainerProperties("orders-reply");
+		System.out.println("OrderReplyConsumer: " +containerProperties);
 		return containerProperties;
 	}
 
-//	@Bean
+	@Bean
 	public MessageListenerContainer getMessageListenerContainer(ContainerProperties containerProperties) {
 		KafkaMessageListenerContainer<String, OrderReply> kafkaMessageListenerContainer = new KafkaMessageListenerContainer<>(
 				this.getConsumerFactory(), containerProperties);
