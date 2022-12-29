@@ -28,8 +28,8 @@ public class OrderConsumerConfig {
 		Map<String, Object> consumerProperties = this.kafkaProperties.buildConsumerProperties();
 		consumerProperties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 		consumerProperties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		consumerProperties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-				new JsonDeserializer<OrderMessage>(OrderMessage.class).getClass().getName());
+		String deserializerClassName = new JsonDeserializer<OrderMessage>(OrderMessage.class).getClass().getName();
+		consumerProperties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializerClassName);
 		consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, "hello-grp-id");
 		return new DefaultKafkaConsumerFactory<>(consumerProperties);
 	}
