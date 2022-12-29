@@ -21,6 +21,9 @@ public class OrderItemBuilder {
 		this.order = orderItem.getOrder();
 	}
 
+	public OrderItemBuilder() {
+	}
+
 	public String getId() {
 		return id;
 	}
