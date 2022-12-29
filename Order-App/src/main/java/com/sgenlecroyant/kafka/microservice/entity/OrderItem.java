@@ -76,5 +76,9 @@ public class OrderItem {
 	public static OrderItemBuilder newBuilder(OrderItem orderItem) {
 		return new OrderItemBuilder(orderItem);
 	}
+	
+	public static OrderItemBuilder newBuilder() {
+		return new OrderItemBuilder();
+	}
 
 }
