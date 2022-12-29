@@ -8,7 +8,6 @@ public class OrderAppTests {
 
 	@Test
 	public void contextLoads() {
-
 	}
 
 }
