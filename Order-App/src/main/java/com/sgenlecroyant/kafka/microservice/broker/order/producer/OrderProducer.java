@@ -7,10 +7,14 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.Header;
 import org.apache.kafka.common.header.internals.RecordHeader;
 import org.apache.kafka.common.header.internals.RecordHeaders;
+import org.apache.kafka.common.serialization.BytesSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.converter.JsonMessageConverter;
+import org.springframework.kafka.support.converter.RecordMessageConverter;
 import org.springframework.stereotype.Component;
 
 import com.sgenlecroyant.kafka.microservice.broker.order.message.OrderMessage;
@@ -39,16 +43,17 @@ public class OrderProducer {
 	}
 
 	public void sendToKafka(OrderMessage orderMessage) {
-		this.kafkaTemplate.send(this.buildOrderMessageWithHeaders(orderMessage))
-				.whenCompleteAsync((sendResult, exception) -> {
-					if (exception != null) {
-						this.logger.error("Exception Occurred while sending Order => {} to kafka. Error: {}",
-								sendResult.getProducerRecord().value(), exception.getMessage());
-					} else {
-						this.logger.info("ORDER PLACED!");
-					}
-				});
+		ProducerRecord<String, OrderMessage> producerRecord = this.buildOrderMessageWithHeaders(orderMessage);
+		this.kafkaTemplate.send(producerRecord).whenCompleteAsync((sendResult, exception) -> {
+			if (exception != null) {
+				this.logger.error("Exception Occurred while sending Order => {} to kafka. Error: {}",
+						sendResult.getProducerRecord().value(), exception.getMessage());
+			} else {
+				this.logger.info("ORDER PLACED!");
+			}
+		});
 
 	}
+
 
 }
