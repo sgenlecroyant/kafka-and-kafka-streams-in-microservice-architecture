@@ -67,6 +67,7 @@ class OrderMessageBuilderTest {
 
 	@Test
 	@DisplayName(value = "SHOULD RETURN THE ORDER ITEM NAME")
+	// @formatter:off
 	public void testGetName() {
 		
 		assertThat(this.orderMessage)
@@ -77,7 +78,14 @@ class OrderMessageBuilderTest {
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD RETURN THE PRICE")
+	// @formatter:off
 	public void testGetPrice() {
+		assertThat(this.orderMessage)
+				.satisfies((inputOrderMessage) -> {
+					assertThat(inputOrderMessage.getPrice()).isEqualTo(this.orderItem.getPrice());
+				});
+				
 	}
 
 	@Test
