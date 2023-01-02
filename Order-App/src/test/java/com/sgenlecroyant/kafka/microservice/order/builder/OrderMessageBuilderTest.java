@@ -89,11 +89,20 @@ class OrderMessageBuilderTest {
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD RETURN ORDER ITEM QUANTITY")
+	// @formatter:off
 	public void testGetQuantity() {
+		assertThat(this.orderMessage)
+					.satisfies((inputOrderMessage) -> {
+						assertThat(inputOrderMessage.getQuantity()).isEqualTo(orderItem.getQuantity());
+					});
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD RETURN THE ORDER CREDITCARD NUMBER")
 	public void testGetCreditCardNumber() {
+		assertThat(this.orderMessage.getCreditCardNumber())
+				.isEqualTo(this.order.getCreditCardNumber());
 	}
 
 	@Test
