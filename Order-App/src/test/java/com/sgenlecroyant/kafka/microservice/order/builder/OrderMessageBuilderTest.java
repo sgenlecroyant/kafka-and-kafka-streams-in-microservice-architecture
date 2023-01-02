@@ -100,21 +100,34 @@ class OrderMessageBuilderTest {
 
 	@Test
 	@DisplayName(value = "SHOULD RETURN THE ORDER CREDITCARD NUMBER")
+	// @formatter:off
 	public void testGetCreditCardNumber() {
 		assertThat(this.orderMessage.getCreditCardNumber())
 				.isEqualTo(this.order.getCreditCardNumber());
 	}
 
 	@Test
+	// @formatter:off
+	@DisplayName(value = "SHOULD RETURN ORDER LOCATION")
 	public void testGetLocation() {
+		assertThat(this.orderMessage.getLocation())
+				.isEqualTo(this.order.getLocation());
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD RETURN ORDER ITEM ID")
+	// @formatter:off
 	public void testGetItemId() {
+		assertThat(this.orderMessage.getItemId()).isEqualTo(orderItem.getId());
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD TEST IF ORDERMESSAGE INSTANCE BE BUILT FROM ORDERMESSAGEBUILDER")
 	public void testBuild() {
+		assertThat(this.orderMessageBuilder.build())
+				.isInstanceOf(OrderMessage.class)
+				.isNotNull();
+		
 	}
 
 }
