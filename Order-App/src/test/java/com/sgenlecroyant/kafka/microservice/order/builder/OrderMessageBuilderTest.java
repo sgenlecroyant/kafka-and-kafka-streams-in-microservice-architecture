@@ -66,8 +66,14 @@ class OrderMessageBuilderTest {
 	}
 
 	@Test
+	@DisplayName(value = "SHOULD RETURN THE ORDER ITEM NAME")
 	public void testGetName() {
 		
+		assertThat(this.orderMessage)
+		.satisfies((inputOrderMessage) -> {
+			assertThat(inputOrderMessage.getName())
+				.isEqualTo(this.orderItem.getName());
+		});
 	}
 
 	@Test
