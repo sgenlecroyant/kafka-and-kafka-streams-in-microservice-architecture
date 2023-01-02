@@ -123,6 +123,7 @@ class OrderMessageBuilderTest {
 
 	@Test
 	@DisplayName(value = "SHOULD TEST IF ORDERMESSAGE INSTANCE BE BUILT FROM ORDERMESSAGEBUILDER")
+	// formatter:off
 	public void testBuild() {
 		assertThat(this.orderMessageBuilder.build())
 				.isInstanceOf(OrderMessage.class)
