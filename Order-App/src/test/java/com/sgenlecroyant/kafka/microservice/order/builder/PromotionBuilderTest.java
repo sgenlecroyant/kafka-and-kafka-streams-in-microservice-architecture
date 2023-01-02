@@ -28,4 +28,15 @@ class PromotionBuilderTest {
 		assertThat(promotion).isNotNull();
 	}
 
+	@Test
+	@DisplayName(value = "SHOULD BUILD PROMOTION INSTANCE WITH EXACT PROPERTIES FROM PROMOTION REQUEST")
+	public void shouldBuiltPromotionInstanceAcquireExactProppertiesFromPromotionRequest() {
+		Promotion promotion = this.promotionBuilder.build();
+		promotion.setId("spring-2023");
+		assertThat(promotion.getId()).isNotNull();
+		assertThat(promotion).satisfies((inputPromotion) -> {
+			assertThat(inputPromotion.getPromoCode()).isEqualTo(promotionRequest.getPromotionCode());
+		});
+	}
+
 }
