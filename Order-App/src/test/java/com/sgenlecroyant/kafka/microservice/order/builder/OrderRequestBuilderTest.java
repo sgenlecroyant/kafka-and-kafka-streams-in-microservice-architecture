@@ -16,7 +16,6 @@ import com.sgenlecroyant.kafka.microservice.entity.OrderItem;
 class OrderRequestBuilderTest {
 
 	private OrderRequest orderRequest;
-	private Faker faker = Faker.instance(Locale.US);
 	private OrderRequestBuilder orderRequestBuilder;
 	private Order order;
 	private OrderItem orderItem;
@@ -24,8 +23,8 @@ class OrderRequestBuilderTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		this.orderRequest = new OrderRequest();
-		String creditCardNumber = faker.business().creditCardNumber();
-		String location = faker.country().name();
+		String creditCardNumber = "public ";
+		String location = "France";
 
 		this.orderRequest.setCreditCardNumber(creditCardNumber);
 		this.orderRequest.setLocation(location);
