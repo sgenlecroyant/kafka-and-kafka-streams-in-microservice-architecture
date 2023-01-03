@@ -28,7 +28,7 @@ public class DiscountAction {
 		return savedDiscount;
 	}
 
-	private DiscountMessage buildDiscountMessage(Discount discount) {
+	public DiscountMessage buildDiscountMessage(Discount discount) {
 		DiscountMessage discountMessage = new DiscountMessage(discount.getDiscountCode(), discount.getPercentage());
 		return discountMessage;
 	}
