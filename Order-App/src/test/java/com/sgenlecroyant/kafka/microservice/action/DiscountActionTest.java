@@ -39,7 +39,7 @@ class DiscountActionTest {
 
 	@Test
 //	@DisplayName(value = "SHOULD CREATE DISCOUNT AND SEND TO KAFKA")
-	void createDiscountAndSendToKafka() {
+	void testCreateDiscountAndSendToKafka() {
 		DiscountRequest discountRequest = new DiscountRequest();
 		discountRequest.setDiscountCode("RUNAWAY-2020");
 		discountRequest.setPercentage(30);
@@ -53,10 +53,6 @@ class DiscountActionTest {
 		Mockito.when(this.discountRepository.save(discountArgumentCaptor.capture())).thenReturn(discount);
 		this.discountAction.createDiscountAndSendToKafka(discountRequest);
 		Mockito.verify(this.discountProducer, times(1)).sendToKafka(discountMessageArgumentCaptor.capture());
-	}
-
-	@Test
-	void testCreateDiscountAndSendToKafka() {
 	}
 
 }
